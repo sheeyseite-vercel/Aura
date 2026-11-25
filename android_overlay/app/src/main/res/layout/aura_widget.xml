@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/w_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/widget_bg"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="12dp">
+
+    <ImageView
+        android:id="@+id/w_art"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:contentDescription="Album art"
+        android:scaleType="centerCrop"
+        android:src="@drawable/w_art_placeholder" />
+
+    <LinearLayout
+        android:id="@+id/w_texts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/w_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Aura"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/w_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Tap to open"
+            android:textColor="#D9FFFFFF"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/w_prev"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Previous"
+        android:src="@drawable/ic_w_prev" />
+
+    <ImageButton
+        android:id="@+id/w_play"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:background="@drawable/w_play_bg"
+        android:contentDescription="Play or pause"
+        android:src="@drawable/ic_w_play" />
+
+    <ImageButton
+        android:id="@+id/w_next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Next"
+        android:src="@drawable/ic_w_next" />
+</LinearLayout>

@@ -1,0 +1,19 @@
+name: aura_player
+description: Aura - a modern local music player with glass UI, animations and a home-screen widget.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  just_audio: ^0.10.5
+  just_audio_background: ^0.0.1-beta.17
+  on_audio_query_forked: ^2.9.1
+  home_widget: ^0.10.0
+  path_provider: ^2.1.5
+
+flutter:
+  uses-material-design: true
