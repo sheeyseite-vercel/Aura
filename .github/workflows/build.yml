@@ -33,12 +33,17 @@ jobs:
       - name: Get packages
         run: flutter pub get
 
-      - name: Patch plugin namespace if missing
+      - name: Patch old plugins (compileSdk and namespace)
         run: |
+          for F in $HOME/.pub-cache/hosted/pub.dev/*/android/build.gradle; do
+            [ -f "$F" ] || continue
+            sed -i -E 's/^([[:space:]]*)compileSdk(Version)?[[:space:]]*=?[[:space:]]*([0-9]|[12][0-9]|3[0-3])[[:space:]]*$/\1compileSdkVersion 36/' "$F"
+          done
           F=$(ls -d $HOME/.pub-cache/hosted/pub.dev/on_audio_query_forked-*/android/build.gradle 2>/dev/null | head -1)
           if [ -n "$F" ] && ! grep -q "namespace" "$F"; then
             sed -i "s/^android {/android {\n    namespace 'com.lucasjosino.on_audio_query'/" "$F"
           fi
+          grep -rn "compileSdk" $HOME/.pub-cache/hosted/pub.dev/on_audio_query*/android/build.gradle || true
 
       - name: Build release APK
         run: flutter build apk --release
